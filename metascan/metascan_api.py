@@ -26,7 +26,7 @@ class MetaScan():
     def scan_file(self, this_file, filename='', archivepwd=''):
         url = 'http://{0}:{1}/metascan_rest/file'.format(self.ip, self.port)
         params = dict(apikey=self.apikey, filename=filename, archivepwd=archivepwd)
-        with (this_file, 'rb') as f:
+        with open(this_file, 'rb') as f:
             sample = f.read()
         return requests.post(url=url, data=sample, params=params)
 
